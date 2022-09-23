@@ -2,6 +2,21 @@ import clsx from 'clsx'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'lib/router'
+import Image from 'next/image'
+import { fetchProducts } from 'lib/products'
+
+export async function getServerSideProps(ctx) {
+  const products = await fetchProducts({
+    filter: ctx.params.path?.[0],
+    available: ctx.query.available,
+  })
+
+  return {
+    props: {
+      products,
+    },
+  }
+}
 
 const ActiveLink = ({ children, ...props }) => {
   const { pathname } = useRouter()
@@ -17,7 +32,7 @@ const ActiveLink = ({ children, ...props }) => {
   )
 }
 
-export default function Home() {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -46,7 +61,9 @@ export default function Home() {
           </ul>
           <form>
             <h3 className='text-2xl font-bold mb-4'>Filters</h3>
-            <button className='uppercase font-extrabold text-green-700'>Clear Filters</button>
+            <button type='reset' className='uppercase font-extrabold text-green-700'>
+              Clear Filters
+            </button>
             <hr className='border-gray-300 mt-4 mb-2' />
             <details className='bg-gray-50'>
               <summary
@@ -117,6 +134,36 @@ export default function Home() {
             </details>
           </form>
         </aside>
+        <section className='ml-12'>
+          <div className='text-xs my-3'>Viewing 1-20 of 554 results</div>
+          <button type='reset' className='relative uppercase font-extrabold text-green-700 mb-8'>
+            Clear Filters
+          </button>
+          <div className='flex flex-wrap gap-5'>
+            {products.map(({ id, title, img, price, msrp }, i) => (
+              <article className='relative flex flex-col items-start w-[150px] mb-6' key={id}>
+                <div className='product-image mb-2 transform transition h-[225px]'>
+                  <Image src={img} width='150' height='225' alt='' />
+                </div>
+                <span className='bg-gray-200 inline-block px-1 uppercase text-xs leading-relaxed tracking-widest mb-2'>
+                  40% off
+                </span>
+                <h3>
+                  <a
+                    className='game-link inline-block leading-tight text-sm hover:underline'
+                    href='#'
+                    title={title}>
+                    {title}
+                  </a>
+                </h3>
+                <div className='text-lg'>
+                  <span className='line-through text-gray-600'>${msrp}</span>
+                  {price}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
     </>
   )

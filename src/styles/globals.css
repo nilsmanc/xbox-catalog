@@ -21,3 +21,12 @@ details[open] .arrow-icon {
 .availability-radio:checked ~ .availability-label {
   @apply bg-gray-200;
 }
+
+.game-link::before {
+  @apply block absolute w-full h-full top-0 left-0;
+  content: '';
+}
+
+.product:hover .product-image {
+  @apply scale-[1.02] -translate-y-1 shadow-xl;
+}
