@@ -19,10 +19,10 @@ details[open] .arrow-icon {
 }
 
 .availability-radio:checked ~ .availability-label {
-  @apply bg-gray-200;
+  @apply bg-gray-300;
 }
 
-.game-link::before {
+.game-link:before {
   @apply block absolute w-full h-full top-0 left-0;
   content: '';
 }
