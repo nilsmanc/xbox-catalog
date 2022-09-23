@@ -17,3 +17,7 @@ details[open] summary {
 details[open] .arrow-icon {
   @apply rotate-0;
 }
+
+.availability-radio:checked ~ .availability-label {
+  @apply bg-gray-200;
+}
