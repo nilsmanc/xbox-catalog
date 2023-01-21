@@ -1,4 +1,4 @@
-import { fetchProducts } from 'lib/products'
+import { fetchProducts } from '../../lib/products'
 
 export default async function productsController(req, res) {
   const products = await fetchProducts({
