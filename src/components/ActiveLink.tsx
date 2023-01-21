@@ -1,8 +1,13 @@
+import React from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useRouter } from 'lib/router'
+import { useRouter } from '../lib/router'
 
-export default function ActiveLink({ children, ...props }) {
+type ActiveLinkProps = {
+  children: React.ReactNode
+}
+
+const ActiveLink: React.FC<ActiveLinkProps> = ({ children, ...props }) => {
   const { pathname } = useRouter()
   const active = pathname === props.href
 
@@ -14,3 +19,5 @@ export default function ActiveLink({ children, ...props }) {
     </Link>
   )
 }
+
+export default ActiveLink

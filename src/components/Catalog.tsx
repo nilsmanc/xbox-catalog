@@ -1,6 +1,7 @@
+import React from 'react'
 import Image from 'next/image'
-import useSWR from 'lib/swr'
-import Router, { useRouter } from 'lib/router'
+import useSWR from '../lib/swr'
+import Router, { useRouter } from '../lib/router'
 import ActiveLink from './ActiveLink'
 import Details from './Details'
 
@@ -21,7 +22,11 @@ function getUrl(params, query) {
   return `${url}${searchString.length !== 0 ? '?' + searchString : ''}`
 }
 
-export default function Catalog({ products }) {
+type CatalogProps = {
+  products: any
+}
+
+const Catalog: React.FC<CatalogProps> = ({ products }) => {
   const { pathname, params, query } = useRouter()
   const url = getUrl(params, query)
   const { data, isValidating } = useSWR(url, {
@@ -210,3 +215,5 @@ export default function Catalog({ products }) {
     </main>
   )
 }
+
+export default Catalog

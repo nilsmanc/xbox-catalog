@@ -1,4 +1,11 @@
-export default function Details({ label, children }) {
+import React from 'react'
+
+type DetailsProps = {
+  label: string
+  children: React.ReactNode
+}
+
+const Details: React.FC<DetailsProps> = ({ label, children }) => {
   return (
     <details className='bg-gray-50'>
       <summary
@@ -16,3 +23,5 @@ export default function Details({ label, children }) {
     </details>
   )
 }
+
+export default Details
