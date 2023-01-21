@@ -3,10 +3,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "jsx": "preserve",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,12 +16,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/lib/router.js",
+    "src/components/Details.jsx",
+    "src/components/Catalog.jsx",
+    "src/components/ActiveLink.jsx"
   ]
 }

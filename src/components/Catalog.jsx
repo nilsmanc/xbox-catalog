@@ -22,11 +22,7 @@ function getUrl(params, query) {
   return `${url}${searchString.length !== 0 ? '?' + searchString : ''}`
 }
 
-type CatalogProps = {
-  products: any
-}
-
-const Catalog: React.FC<CatalogProps> = ({ products }) => {
+const Catalog = ({ products }) => {
   const { pathname, params, query } = useRouter()
   const url = getUrl(params, query)
   const { data, isValidating } = useSWR(url, {

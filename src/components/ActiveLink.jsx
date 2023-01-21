@@ -3,11 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from '../lib/router'
 
-type ActiveLinkProps = {
-  children: React.ReactNode
-}
-
-const ActiveLink: React.FC<ActiveLinkProps> = ({ children, ...props }) => {
+const ActiveLink = ({ children, ...props }) => {
   const { pathname } = useRouter()
   const active = pathname === props.href
 

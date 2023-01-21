@@ -1,11 +1,6 @@
 import React from 'react'
 
-type DetailsProps = {
-  label: string
-  children: React.ReactNode
-}
-
-const Details: React.FC<DetailsProps> = ({ label, children }) => {
+const Details = ({ label, children }) => {
   return (
     <details className='bg-gray-50'>
       <summary
