@@ -1,5 +1,3 @@
-! Public API stopped working
-
 ### Technologies
 
 NextJS, React, SWR, TailwindCSS, Postcss
