@@ -21,9 +21,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/lib/router.js",
-    "src/components/Details.jsx",
-    "src/components/Catalog.jsx",
+    "src/lib/router.ts",
+    "src/components/Details.tsx",
+    "src/components/Catalog.tsx",
     "src/components/ActiveLink.jsx"
   ]
 }

@@ -1,7 +1,8 @@
 import { fetchProducts } from '../lib/products'
 import Catalog from '../components/Catalog'
+import { GetServerSideProps } from 'next'
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: GetServerSideProps) {
   const products = await fetchProducts({
     filter: ctx.params.path?.[0],
     available: ctx.query.available,
@@ -14,7 +15,7 @@ export async function getServerSideProps(ctx) {
   }
 }
 
-export default function Index({ products }) {
+const Index = ({ products }) => {
   return (
     <>
       <Catalog products={products} />
@@ -43,3 +44,5 @@ export default function Index({ products }) {
     </>
   )
 }
+
+export default Index
