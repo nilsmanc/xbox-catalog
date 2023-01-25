@@ -5,6 +5,8 @@ import { useRouter } from '../lib/router'
 
 type ActiveLinkProps = {
   children: React.ReactNode
+  href: string
+  shallow: boolean
 }
 
 const ActiveLink: React.FC<ActiveLinkProps> = ({ children, ...props }) => {

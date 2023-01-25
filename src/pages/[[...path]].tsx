@@ -1,8 +1,16 @@
 import { fetchProducts } from '../lib/products'
 import Catalog from '../components/Catalog'
-import { GetServerSideProps } from 'next'
 
-export async function getServerSideProps(ctx: GetServerSideProps) {
+type ServerSidePropsCtx = {
+  params?: {
+    path: string
+  }
+  query: {
+    available: boolean
+  }
+}
+
+export async function getServerSideProps(ctx: ServerSidePropsCtx) {
   const products = await fetchProducts({
     filter: ctx.params.path?.[0],
     available: ctx.query.available,

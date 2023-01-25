@@ -2,7 +2,7 @@ import React from 'react'
 
 type DetailsProps = {
   label: string
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const Details: React.FC<DetailsProps> = ({ label, children }) => {

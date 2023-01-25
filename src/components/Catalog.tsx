@@ -4,6 +4,7 @@ import useSWR from '../lib/swr'
 import Router, { useRouter } from '../lib/router'
 import ActiveLink from './ActiveLink'
 import Details from './Details'
+import { Product } from '../types'
 
 function getUrl(params, query) {
   let url = '/api/products'
@@ -23,7 +24,7 @@ function getUrl(params, query) {
 }
 
 type CatalogProps = {
-  products: []
+  products: Product[]
 }
 
 const Catalog: React.FC<CatalogProps> = ({ products }) => {
@@ -35,7 +36,7 @@ const Catalog: React.FC<CatalogProps> = ({ products }) => {
   })
 
   function handleChangeDevice(evt) {
-    console.log({ available: evt.currentTarget.value })
+    //console.log({ available: evt.currentTarget.value })
     Router.replace(
       {
         pathname,

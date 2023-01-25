@@ -21,7 +21,7 @@ function getUrl(filter) {
   return `https://reco-public.rec.mp.microsoft.com/channels/Reco/V8.0/Lists/Computed/${params}?Market=us&Language=en&ItemTypes=Game&deviceFamily=Windows.Xbox&count=20&skipitems=0`
 }
 
-export async function fetchProducts({ filter }) {
+export async function fetchProducts({ filter, available: boolean }) {
   const productListReq = await fetch(getUrl(filter))
   const list = await productListReq.json()
 

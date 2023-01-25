@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
 import _useSWR from 'swr'
+import { Config } from '../types'
 
-export default function useSWR(key, config = {}) {
+export default function useSWR(key: string, config = {} as Config) {
   const hasMounted = useRef(false)
   const swr = _useSWR(key, {
     ...config,

@@ -1,7 +1,15 @@
+import { NextPage } from 'next'
 import Head from 'next/head'
+import { Product } from '../types'
+
 import './../styles/globals.css'
 
-const MyApp = ({ Component, pageProps }) => {
+type MyAppProps = {
+  Component: React.ElementType
+  pageProps: Product[]
+}
+
+const MyApp: NextPage<MyAppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
