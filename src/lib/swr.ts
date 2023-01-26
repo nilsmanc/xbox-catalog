@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import _useSWR from 'swr'
+
 import { Config } from '../types'
 
 export default function useSWR(key: string, config = {} as Config) {

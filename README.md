@@ -1,5 +1,5 @@
 ### Technologies
 
-NextJS, React, SWR, TailwindCSS, Postcss
+NextJS, React, Typescript, SWR, TailwindCSS, Postcss
 
 ![first](/public/main.png)

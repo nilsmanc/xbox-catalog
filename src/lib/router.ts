@@ -1,5 +1,7 @@
 import NextRouter, { useRouter as useNextRouter } from 'next/router'
 
+import { URL, TransitionOptions } from '../types'
+
 export function useRouter() {
   const router = useNextRouter()
   const [pathname, queryString = ''] = router.asPath.split('?')
@@ -25,11 +27,11 @@ export function useRouter() {
   return Object.assign({}, router, { pathname, queryString, query, params })
 }
 
-function push(url, opts) {
+function push(url: URL | string, opts: TransitionOptions) {
   return NextRouter.push(url, null, opts)
 }
 
-function replace(url, opts) {
+function replace(url: URL | string, opts: TransitionOptions) {
   return NextRouter.replace(url, null, opts)
 }
 

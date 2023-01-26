@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+
 import { Product } from '../types'
 
 import './../styles/globals.css'

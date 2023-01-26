@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+
 import useSWR from '../lib/swr'
 import Router, { useRouter } from '../lib/router'
 import ActiveLink from './ActiveLink'
 import Details from './Details'
-import { Product } from '../types'
+import { Params, Product, Query } from '../types'
 
-function getUrl(params, query) {
+function getUrl(params: Params, query: Query) {
   let url = '/api/products'
   const searchParams = new URLSearchParams()
 
@@ -35,8 +36,7 @@ const Catalog: React.FC<CatalogProps> = ({ products }) => {
     revalidateOnFocus: false,
   })
 
-  function handleChangeDevice(evt) {
-    //console.log({ available: evt.currentTarget.value })
+  function handleChangeDevice(evt: React.FormEvent<HTMLInputElement>) {
     Router.replace(
       {
         pathname,

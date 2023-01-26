@@ -24,6 +24,6 @@
     "src/lib/router.ts",
     "src/components/Details.tsx",
     "src/components/Catalog.tsx",
-    "src/components/ActiveLink.jsx"
+    "src/components/ActiveLink.tsx"
   ]
 }

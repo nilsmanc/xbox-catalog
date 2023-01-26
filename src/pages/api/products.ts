@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import { fetchProducts } from '../../lib/products'
 
 export default async function productsController(req: NextApiRequest, res: NextApiResponse) {
